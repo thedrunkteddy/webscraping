@@ -1,3 +1,5 @@
+Books = new Mongo.Collection()
+
 if (Meteor.isClient) {
 
   Meteor.call('webScrape', function(error,result){
@@ -12,8 +14,8 @@ if (Meteor.isClient) {
       };
       console.log(result2)
       Session.set("scraper2", result2);
-    })
 
+    })
     Session.set("scraper", result);
   });
 
@@ -43,13 +45,16 @@ if (Meteor.isServer) {
         var count = 0;
         for(i=30000; i<33000; i++){
           var resp= $('#promotion-' + i + '> div.col-sm-9 > h5 > a').text();
+          var url= "https://r.bookbub.com/promotion_site_active_check/" + i + "?retailer_id=1"
           if (resp != "" ){
-            titles[count] = resp;
+            titles[count] = resp
             count = count + 1;
+            Books.insert({Title: resp, url: url})
           }
         }
         var newline = titles.join("\n");
         return newline;
+
       },
 
       webScrape2: function (){
