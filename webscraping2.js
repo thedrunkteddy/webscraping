@@ -53,9 +53,9 @@ if (Meteor.isServer) {
       },
 
       webScrape2: function (){
-        result2 = Meteor.http.get("https://www.bookbub.com/ebook-deals/latest");
+        result2 = Meteor.http.get("http://www.amazon.com/The-Whiskey-Rebels-A-Novel-ebook/dp/B0015DYJVW?_bbid=1607716&tag=bookbubblog-20");
         $ = cheerio.load(result2.content);
-        var resp2 = $('#promotion-30767 > div.col-sm-9 > h5 > a').text();
+        var resp2 = $('#avgRating > span > a > span').text();
         console.log(resp2)
         return resp2
       }
