@@ -11,11 +11,10 @@ if (Meteor.isClient) {
         console.log("error", error);
       };
       console.log(result2)
+      Session.set("scraper2", result2);
     })
 
-
     Session.set("scraper", result);
-    Session.set("scraper2", result2);
   });
 
   Template.scraper.helpers({
@@ -24,6 +23,9 @@ if (Meteor.isClient) {
     },
     bookRatings: function(){
       return Session.get("scraper2")
+    },
+    scrapeIsNotFinished: function(){
+      return !Session.get("scraper");
     }
   })
     }

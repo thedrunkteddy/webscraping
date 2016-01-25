@@ -11,9 +11,12 @@
 <template name="scraper">
   <h2> Scraped Titles: </h2>
 
-<textarea rows=30 cols=50 readonly>
-{{bookTitles}} : {{bookRatings}}
-
-</textarea>
+{{#if scrapeIsNotFinished}}
+  {{> spinner}}
+{{else}}
+  <textarea rows=30 cols=50 readonly>
+    {{bookTitles}} : {{bookRatings}}
+  </textarea>
+{{/if}}
 
 </template>
