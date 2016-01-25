@@ -1,0 +1,19 @@
+<head>
+  <title> Book Reviews Scraper </title>
+</head>
+
+<body>
+  <h1>WebScraper App</h1>
+
+  {{> scraper}}
+</body>
+
+<template name="scraper">
+  <h2> Scraped Titles: </h2>
+
+<textarea rows=30 cols=50 readonly>
+{{bookTitles}} : {{bookRatings}}
+
+</textarea>
+
+</template>
