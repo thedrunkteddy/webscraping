@@ -53,13 +53,12 @@ if (Meteor.isServer) {
       },
 
       webScrape2: function (){
-        result = Meteor.http.get("https://www.bookbub.com/ebook-deals/latest");
-        $ = cheerio.load(result.content);
-        var resp2 = $('#promotion-31062 > div.col-sm-9 > h5 > a').text();
+        result2 = Meteor.http.get("https://www.bookbub.com/ebook-deals/latest");
+        $ = cheerio.load(result2.content);
+        var resp2 = $('#promotion-30767 > div.col-sm-9 > h5 > a').text();
         console.log(resp2)
         return resp2
       }
-
 
     })
   });
